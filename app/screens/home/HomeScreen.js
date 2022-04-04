@@ -1,6 +1,59 @@
 import React from "react";
-import { View } from "react-native";
+import { ScrollView, Text, View } from "react-native";
+import { Base } from "styles";
 
 export const HomeScreen = () => {
-  return <View>homeScreen</View>;
+  return (
+    <ScrollView>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      <Text>HomeScreen</Text>
+      
+    </ScrollView>
+  );
 };

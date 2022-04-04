@@ -1,11 +1,17 @@
-import { StatusBar } from "expo-status-bar";
-import { Text, View } from "react-native";
+import React from "react";
+import { Provider } from "react-redux";
+import { persistor, store } from "store";
+import { PersistGate } from "redux-persist/integration/react";
+import { RootNavigation } from "./app/navigations/RootNavigation";
 
-export default function App() {
+import { Loading } from "components_shared";
+
+export default App = () => {
   return (
-    <View>
-      <Text>Paisapp!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Provider store={store}>
+      <PersistGate loading={<Loading />} persistor={persistor}>
+        <RootNavigation />        
+      </PersistGate>
+    </Provider>
   );
-}
+};

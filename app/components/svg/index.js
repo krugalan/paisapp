@@ -1,4 +1,6 @@
+import Document from "./Document";
+import Home from "./Home";
 import Notification from "./Notification";
 import Search from "./Search";
 
-export { Search, Notification };
+export { Document, Home, Search, Notification };

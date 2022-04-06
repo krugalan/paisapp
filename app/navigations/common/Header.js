@@ -38,7 +38,7 @@ const stl = StyleSheet.create({
   safeAreaView: {
     height: Base.screenHeight * 0.12,
     justifyContent: "center",
-    marginTop: 20,
+    marginVertical: Base.baseUnit * 6,
     paddingHorizontal: Base.baseUnit * 5,
   },
   title: {

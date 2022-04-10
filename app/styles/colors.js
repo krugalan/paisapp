@@ -13,4 +13,4 @@ const secondary = {
   dark_extra: "#0F6D44",
 };
 
-export { primary, secondary };
+export { primary, secondary, black, white };

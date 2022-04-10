@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
-import { Base } from "styles";
+import { Base, Shared } from "styles";
 
 export const Card = ({ itemCard }) => {
   const { item, index } = itemCard;
@@ -46,13 +46,13 @@ export const Card = ({ itemCard }) => {
           </Text>
         </View>
 
-        <Text style={[stl.txtNormalCard, stl.total_amount]}>
+        <Text style={[Shared.txtNormalCard, stl.total_amount]}>
           {total_amount}
         </Text>
       </View>
 
       <View style={stl.rowEl}>
-        <Text style={stl.txtNormalCard}>{number_card}</Text>
+        <Text style={Shared.txtNormalCard}>{number_card}</Text>
       </View>
     </>
   );
@@ -120,9 +120,5 @@ const stl = StyleSheet.create({
   },
   total_amount: {    
     padding: Base.baseUnit,
-  },
-  txtNormalCard: {    
-    fontSize: Base.txtMedium,
-    color: "white",
   },
 });

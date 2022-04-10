@@ -15,18 +15,6 @@ export default function AppTab() {
     let icon;
 
     switch (route.name) {
-      case "Home":
-        iconType = "icon";
-        icon = (
-          <Home
-            width={30}
-            height={30}
-            scale={1}
-            stroke={color}
-            strokeColor={color}
-          />
-        );
-        break;
       case "Contactos":
         iconType = "icon";
         icon = (
@@ -52,33 +40,30 @@ export default function AppTab() {
         );
         break;
       default:
+        iconType = "icon";
+        icon = (
+          <Home
+            width={30}
+            height={30}
+            scale={1}
+            stroke={color}
+            strokeColor={color}
+          />
+        );
         break;
     }
 
-    return iconType === "Home" ? (
-      <Home
-        width={30}
-        height={30}
-        scale={1}
-        stroke={color}
-        strokeColor={color}
-      />
-    ) : (
-      icon
-    );
+    return icon;
   };
 
   return (
     <Tab.Navigator
-      initialRouteName="Home"
       contentStyle={{
         backgroundColor: "red",
       }}
       screenOptions={({ route }) => ({
         tabBarIcon: ({ color }) => screenOptions(route, color),
-        tabBarStyle:{
-          height: Base.screenHeight * 0.09
-        }
+        tabBarStyle: { height: Base.screenHeight * 0.09 },
       })}
       tabBarOptions={{
         inactiveTintColor: "#071529",

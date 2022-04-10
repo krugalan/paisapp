@@ -1,4 +1,4 @@
-import { Card } from "./Card";
 import { CardList } from "./CardList";
+import { Services } from "./Services";
 
-export { Card, CardList };
+export { Services, CardList };

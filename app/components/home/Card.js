@@ -1,35 +1,37 @@
 import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Base, Shared } from "styles";
+import { CardMaster } from "use_svg";
+import { usePrice } from "hooks";
 
 export const Card = ({ itemCard }) => {
+  console.log("itemCard: ", itemCard);
   const { item, index } = itemCard;
+  const colores = [
+    { color_coin: "#89A5FB", color: "#005CEE" },
+    { color_coin: "#d29393", color: "#F9B7B7" },
+    { color_coin: "#709372", color: "#74CC9B" },
+  ];
 
-  const {
-    id,
-    type,
-    type_coin,
-    icon,
-    total_amount,
-    number_card,
-    name_card,
-    expiration,
-    color_coin,
-    color,
-  } = item;
+  const { id, number, balance, symbol, expDate } = item;
 
   const row2El = () => (
     <View style={[stl.rowEl, stl.space2El]}>
       <View>
-        <Text style={stl.typeTxt}>{type}</Text>
+        <Text style={stl.typeTxt}>Balance</Text>
       </View>
       <View style={stl.icon}>
         <View style={stl.type}>
-          <Text style={stl.typeTxt}>{icon}</Text>
+          <CardMaster width={35} height={25} />
         </View>
       </View>
     </View>
   );
+
+  const numberFormatCard = () => {
+    let aux = number.split(" ");    
+    return `**** **** **** ${aux[aux.length - 1]}`;
+  };
 
   const bodyCard = () => (
     <>
@@ -39,20 +41,20 @@ export const Card = ({ itemCard }) => {
             style={[
               stl.typeTxt,
               stl.type_coin,
-              { backgroundColor: color_coin },
+              { backgroundColor: colores[id - 1].color_coin },
             ]}
           >
-            {type_coin}
+            {symbol}
           </Text>
         </View>
 
         <Text style={[Shared.txtNormalCard, stl.total_amount]}>
-          {total_amount}
+          {usePrice(balance)}
         </Text>
       </View>
 
       <View style={stl.rowEl}>
-        <Text style={Shared.txtNormalCard}>{number_card}</Text>
+        <Text style={Shared.txtNormalCard}>{numberFormatCard()}</Text>
       </View>
     </>
   );
@@ -60,7 +62,7 @@ export const Card = ({ itemCard }) => {
   const footerCard = () => (
     <View style={[stl.rowEl, stl.space2El]}>
       <View>
-        <Text style={stl.typeTxt}>{name_card}</Text>
+        <Text style={stl.typeTxt}>Soy Paisanx</Text>
       </View>
       <View style={stl.icon}>
         <View style={stl.type}>
@@ -72,14 +74,17 @@ export const Card = ({ itemCard }) => {
           >
             Exp. Date
           </Text>
-          <Text style={stl.typeTxt}>{expiration}</Text>
+          <Text style={stl.typeTxt}>{expDate}</Text>
         </View>
       </View>
     </View>
   );
 
   return (
-    <View key={index} style={[stl.card, { backgroundColor: color }]}>
+    <View
+      key={index}
+      style={[stl.card, , { backgroundColor: colores[id - 1].color }]}
+    >
       {row2El()}
       {bodyCard()}
       {footerCard()}
@@ -118,7 +123,7 @@ const stl = StyleSheet.create({
     borderRadius: Base.baseUnit * 1.5,
     padding: Base.baseUnit,
   },
-  total_amount: {    
+  total_amount: {
     padding: Base.baseUnit,
   },
 });

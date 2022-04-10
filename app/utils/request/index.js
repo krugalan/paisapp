@@ -77,7 +77,7 @@ async function getTransactions() {
 //         ]
 //     }
 // }
-async function getUser() {
+async function getCardsByUser() {
   try {
     const response = await axios.get(`${BASE}/user`);
 
@@ -125,4 +125,4 @@ async function logInUser(userCredentials) {
   }
 }
 
-export { logInUser, getContacts, getTransactions, getUser };
+export { logInUser, getContacts, getTransactions, getCardsByUser };

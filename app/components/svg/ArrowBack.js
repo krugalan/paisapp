@@ -25,14 +25,5 @@ function ArrowBack(props) {
   );
 }
 
-<svg
-  width="9"
-  height="15"
-  viewBox="0 0 9 15"
-  fill="none"
-  xmlns="http://www.w3.org/2000/svg"
->
-  <path fill-rule="evenodd" clip-rule="evenodd" fill="#343A3F" />
-</svg>;
 
 export default ArrowBack;

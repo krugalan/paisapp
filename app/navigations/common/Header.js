@@ -20,12 +20,14 @@ const Header = ({ navigation }) => {
               width={Base.baseUnit * 6}
               scale={Base.baseUnit / 4}
               strokeWidth={2}
+              strokeColor='black'
             />
             <Notification
               height={Base.baseUnit * 6}
               width={Base.baseUnit * 6}
               scale={Base.baseUnit / 4}
               strokeWidth={2}
+              strokeColor='black'
             />
           </View>
         </View>

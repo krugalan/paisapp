@@ -8,14 +8,6 @@ export default function AuthStack() {
   return (
     <Stack.Navigator initialRouteName="Login" screenOptions={navScreenOptions}>
       <Stack.Screen component={SignInScreen} name="Login" />
-
-      {/* <Stack.Screen component={RecoverPassword} name="RecoverPassword" />
-
-      <Stack.Screen component={ResetPassword} name="ResetPassword" />
-
-      <Stack.Screen component={CheckResetCode} name="CheckResetCode" />
-
-      <Stack.Screen component={Register} name="Register" /> */}
     </Stack.Navigator>
   );
 }

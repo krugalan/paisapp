@@ -1,7 +1,7 @@
 import * as React from "react";
 import Svg, { G, Path } from "react-native-svg";
 
-function Home(props) {
+function Contacts(props) {
   const { height, width, scale, strokeColor, strokeWidth } = props;
 
   return (
@@ -27,4 +27,4 @@ function Home(props) {
   );
 }
 
-export default Home;
+export default Contacts;

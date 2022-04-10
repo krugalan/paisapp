@@ -6,6 +6,7 @@ import { HomeStack } from "./navStack";
 import Header from "../common/Header";
 import { Home, Document, LogOut } from "use_svg";
 import { Base } from "styles";
+import HeaderPage from "../common/HeaderContact";
 
 export default function AppTab() {
   const Tab = createBottomTabNavigator();
@@ -79,7 +80,14 @@ export default function AppTab() {
           ...navScreenOptions,
         }}
       />
-      <Tab.Screen name="Contactos" component={ContactsScreen} />
+      <Tab.Screen
+        name="Contactos"
+        component={ContactsScreen}
+        options={{
+          title: "Contactos",
+          header: HeaderPage,
+        }}
+      />
       <Tab.Screen name="Salir" component={ContactsScreen} />
     </Tab.Navigator>
   );

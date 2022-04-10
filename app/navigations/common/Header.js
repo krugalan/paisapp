@@ -36,9 +36,9 @@ const Header = ({ navigation }) => {
 
 const stl = StyleSheet.create({
   safeAreaView: {
-    height: Base.screenHeight * 0.12,
+    height: Base.screenHeight * 0.06,
     justifyContent: "center",
-    marginVertical: Base.baseUnit * 6,
+    marginVertical: Base.screenHeight * 0.06,
     paddingHorizontal: Base.baseUnit * 5,
   },
   title: {

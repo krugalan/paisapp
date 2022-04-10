@@ -1,10 +1,11 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { ScrollView } from "react-native";
+import { ContactList } from "contact_component";
 
-export const ContactsScreen = () => {
+export const ContactsScreen = (props) => {
   return (
-    <View>
-      <Text>contactos</Text>
-    </View>
+    <ScrollView>
+      <ContactList />
+    </ScrollView>
   );
 };

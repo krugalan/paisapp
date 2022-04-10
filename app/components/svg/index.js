@@ -1,3 +1,4 @@
+import ArrowBack from "./ArrowBack";
 import ArrowDown from "./ArrowDown";
 import Document from "./Document";
 import Home from "./Home";
@@ -11,6 +12,7 @@ import Transfer from "./Transfer";
 import Wallet from "./Wallet";
 
 export {
+  ArrowBack,
   ArrowDown,
   Payment,
   Topup,

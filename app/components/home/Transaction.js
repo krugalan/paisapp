@@ -2,17 +2,19 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Base, Shared } from "styles";
 import { Payment, ArrowDown } from "use_svg";
+import { usePrice } from "hooks";
 
 export const Transaction = ({ id, item }) => {
-  const { icon, title, short_description, amount, color } = item;
+  const { type, title, description, total } = item;
+  const color = type === "PAYMENT" ? "#B946FF" : "#74CC9B";
 
-  const iconRender = () => {
-    switch (icon) {
-      case "Payment":
+  const typeRender = () => {
+    switch (type) {
+      case "PAYMENT":
         return (
-          <Payment width={30} height={30} strokeColor={color} scale={1.6} />
+          <Payment width={30} height={35} strokeColor={color} scale={1.6} />
         );
-      case "collect":
+      case "DEBIT":
         return (
           <ArrowDown width={30} height={30} strokeColor={color} scale={1.4} />
         );
@@ -26,15 +28,15 @@ export const Transaction = ({ id, item }) => {
 
   return (
     <View key={id} style={stl.card}>
-      <View style={{ flex: 1, alignItems: "center" }}>{iconRender()}</View>
+      <View style={{ flex: 1, alignItems: "center" }}>{typeRender()}</View>
       <View style={stl.contentText}>
         <Text style={Shared.txtNormalBlack}>{title}</Text>
-        <Text style={Shared.txtNormalB}>{short_description}</Text>
+        <Text style={Shared.txtNormalB}>{description}</Text>
       </View>
 
-      <View style={stl.amount}>
+      <View style={stl.total}>
         <Text style={{ color: color, fontSize: Base.baseUnit * 3.5 }}>
-          {amount}
+          {usePrice(total)}
         </Text>
       </View>
     </View>
@@ -44,18 +46,18 @@ export const Transaction = ({ id, item }) => {
 const stl = StyleSheet.create({
   card: {
     flexDirection: "row",
-    paddingHorizontal: Base.baseUnit * 2,    
+    paddingHorizontal: Base.baseUnit * 2,
     width: Base.screenWidth * 0.95,
     height: Base.baseUnit * 20,
     borderRadius: 20,
     marginBottom: 5,
-    elevation: 1.8,
+    elevation: 2,
     alignItems: "center",
   },
   contentText: {
     flex: 2,
   },
-  amount: {
+  total: {
     flex: 1.4,
     marginRight: 10,
     alignItems: "flex-end",

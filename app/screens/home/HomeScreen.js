@@ -1,12 +1,14 @@
 import React from "react";
 import { ScrollView, Text, View } from "react-native";
-import { CardList , Services} from "home_component";
+import { CardList, Services, LastTransactions } from "home_component";
 
 export const HomeScreen = () => {
   return (
-    <ScrollView>      
+    <ScrollView>
       <CardList />
       <Services />
+      <LastTransactions />
+    
     </ScrollView>
   );
 };

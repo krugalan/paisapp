@@ -9,6 +9,10 @@ const txtNormalB = {
   fontSize: txtSmall,
   color: black,
 };
+const txtNormalBlack = {
+  fontSize: txtNormal,
+  color: black,
+};
 const txtNormalW = {
   fontSize: txtSmall,
   color: white,
@@ -17,9 +21,16 @@ const txtBigB = {
   fontSize: txtMedium,
   color: black,
 };
-const safeAreaView = {    
+const safeAreaView = {
   marginVertical: baseUnit * 2,
   paddingHorizontal: baseUnit * 5,
 };
 
-export { txtNormalCard, txtNormalB, txtNormalW, txtBigB, safeAreaView };
+export {
+  txtNormalCard,
+  txtNormalB,
+  txtNormalW,
+  txtBigB,
+  safeAreaView,
+  txtNormalBlack,
+};

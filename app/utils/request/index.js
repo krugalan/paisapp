@@ -106,7 +106,7 @@ async function getCardsByUser() {
 //   }
 async function logInUser(userCredentials) {
   try {
-    const response = await axios.post(`${uri}/login`, userCredentials, {
+    const response = await axios.post(`${BASE}/login`, userCredentials, {
       data: "",
       headers: {
         "Content-Type": "application/json",

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Button,
   SafeAreaView,
@@ -16,52 +16,83 @@ import {
   Checked,
 } from "use_svg";
 import { Base, Shared } from "styles";
-
-import { useForm } from "hooks";
+import { logInUser } from "call_api";
+import { useKeyboard } from "hooks";
 
 export const SignInScreen = () => {
-  const [formValues, handleInputChange] = useForm();
+  const isKeyOpen = useKeyboard();
   const [checked, setChecked] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [msgError, setMsgError] = useState("");
 
-  const { email, password } = formValues;
+  const login = () => {
+    if (!email.length || !password.length) {
+      setMsgError("Debe completar usuario y contraseña para continuar");
+    } else {
+      setMsgError("");
+      logUserSignIn(email, password);
+    }
+  };
+
+  const logUserSignIn = async () => {
+    await logInUser({ email, password })
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
+  };
 
   return (
     <SafeAreaView style={stl.container}>
-      <View
-        style={{ flex: 3, justifyContent: "flex-end", alignItems: "center" }}
-      >
-        <View>
-          <LogoPaisapp />
+      {!isKeyOpen && (
+        <View
+          style={{ flex: 3, justifyContent: "flex-end", alignItems: "center" }}
+        >
+          <View>
+            <LogoPaisapp />
+          </View>
+          <View style={{ marginVertical: 5 }}>
+            <TextPaisapp />
+          </View>
+          <View style={{ marginVertical: 15 }}>
+            <DescPaisapp />
+          </View>
         </View>
-        <View style={{ marginVertical: 5 }}>
-          <TextPaisapp />
-        </View>
-        <View style={{ marginVertical: 15 }}>
-          <DescPaisapp />
-        </View>
-      </View>
+      )}
 
       <View
-        style={{ flex: 3, justifyContent: "flex-start", alignItems: "center" }}
+        style={{
+          flex: 3,
+          justifyContent: isKeyOpen ? "flex-end" : "flex-start",
+          alignItems: "center",
+        }}
       >
         <View style={stl.containerText}>
           <Text style={Shared.txtNormalBlack}>Email</Text>
           <TextInput
-            style={stl.input}
+            selectTextOnFocus={true}
             name="email"
-            value={email}
             keyboardType="email-address"
             placeholder="Ingresa tu email"
+            style={stl.input}
+            onChangeText={(e) => {
+              setMsgError("");
+              setEmail(e);
+            }}
           />
         </View>
         <View style={stl.containerText}>
           <Text style={Shared.txtNormalBlack}>Contraseña</Text>
           <TextInput
-            style={stl.input}
+            selectTextOnFocus={true}
             name="password"
             value={password}
-            secureTextEntry={true}
             placeholder="Ingresa tu contraseña"
+            secureTextEntry={true}
+            style={stl.input}
+            onChangeText={(e) => {
+              setMsgError("");
+              setPassword(e);
+            }}
           />
         </View>
 
@@ -105,6 +136,10 @@ export const SignInScreen = () => {
         </View>
       </View>
 
+      <View style={stl.containerText}>
+        <Text style={[Shared.txtNormalB, { color: "red" }]}>{msgError}</Text>
+      </View>
+
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
         <View style={{ flexDirection: "row", marginVertical: 20 }}>
           <Text style={Shared.txtNormalB}>No tienes cuenta?</Text>
@@ -113,29 +148,11 @@ export const SignInScreen = () => {
           </Text>
         </View>
         <View style={stl.containerText}>
-          <TouchableOpacity style={stl.btn}>
+          <TouchableOpacity onPress={login} style={stl.btn}>
             <Text style={[Shared.txtNormalW, { fontWeight: "bold" }]}>
               Ingresar
             </Text>
           </TouchableOpacity>
-        </View>
-
-        <View
-          style={{ flex: 1, justifyContent: "center", alignItems: "center" }}
-        >
-          <View style={{ flexDirection: "row", marginVertical: 20 }}>
-            <Text style={Shared.txtNormalB}>No tienes cuenta?</Text>
-            <Text style={[Shared.txtNormalB, { color: "#005CEE" }]}>
-              {" Regístrate"}
-            </Text>
-          </View>
-          <View style={stl.containerText}>
-            <TouchableOpacity style={stl.btn}>
-              <Text style={[Shared.txtNormalW, { fontWeight: "bold" }]}>
-                Ingresar
-              </Text>
-            </TouchableOpacity>
-          </View>
         </View>
       </View>
     </SafeAreaView>

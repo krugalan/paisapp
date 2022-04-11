@@ -147,7 +147,7 @@ export const SignInScreen = () => {
         <Text style={[Shared.txtNormalB, { color: "red" }]}>{msgError}</Text>
       </View>
 
-      <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+      <View style={{ flex: 1.2, justifyContent: "flex-start", alignItems: "center" }}>
         <View style={{ flexDirection: "row", marginVertical: 20 }}>
           <Text style={Shared.txtNormalB}>No tienes cuenta?</Text>
           <Text style={[Shared.txtNormalB, { color: "#005CEE" }]}>

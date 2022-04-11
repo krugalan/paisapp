@@ -2,6 +2,7 @@ import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 
 import { ContactsScreen } from "contacts_screen";
+import { LogOutScreen } from "session_screen";
 import { HomeStack } from "./navStack";
 import Header from "../common/Header";
 import { Home, Document, LogOut } from "use_svg";
@@ -90,12 +91,12 @@ export default function AppTab() {
       />
       <Tab.Screen
         name="Salir"
-        component={ContactsScreen}
+        component={LogOutScreen}
         options={{
           title: "Salir",
           header: HeaderPage,
         }}
-      />     
+      />
     </Tab.Navigator>
   );
 }

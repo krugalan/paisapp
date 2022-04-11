@@ -7,7 +7,7 @@ const sessionReducer = (state = initialState, action) => {
     case typesApp.USER_SESSION:
       return {
         ...state,
-        userLogged: action.payload.user,
+        userLogged: action.payload.userLogged,
         token: true,
       };
 

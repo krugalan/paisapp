@@ -88,7 +88,14 @@ export default function AppTab() {
           header: HeaderPage,
         }}
       />
-      <Tab.Screen name="Salir" component={ContactsScreen} />
+      <Tab.Screen
+        name="Salir"
+        component={ContactsScreen}
+        options={{
+          title: "Salir",
+          header: HeaderPage,
+        }}
+      />     
     </Tab.Navigator>
   );
 }

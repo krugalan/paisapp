@@ -8,7 +8,7 @@ export const RootNavigation = () => {
   // Componente Root Navigator donde separo las rutas publicas y privadas basadas en el token correspondiente
   return (
     <NavigationContainer>
-      {token ? <AppTab /> : <AuthStack />}
+      {!token ? <AppTab /> : <AuthStack />}
     </NavigationContainer>
   );
 };

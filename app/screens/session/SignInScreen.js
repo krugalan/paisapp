@@ -18,9 +18,12 @@ import {
 import { Base, Shared } from "styles";
 import { logInUser } from "call_api";
 import { useKeyboard } from "hooks";
+import { actSetUserSession } from "../../utils/redux/actions/actSession";
+import { useDispatch } from "react-redux";
 
 export const SignInScreen = () => {
   const isKeyOpen = useKeyboard();
+  const dispatch = useDispatch();
   const [checked, setChecked] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -37,7 +40,11 @@ export const SignInScreen = () => {
 
   const logUserSignIn = async () => {
     await logInUser({ email, password })
-      .then((res) => console.log(res))
+      .then((res) => {
+        if (res.success) {
+          dispatch(actSetUserSession({ email, password }));
+        }
+      })
       .catch((err) => console.log(err));
   };
 

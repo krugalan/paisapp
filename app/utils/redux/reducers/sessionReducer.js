@@ -1,4 +1,4 @@
-import { typesApp } from "types";
+import { typesApp } from "../types";
 
 const initialState = {};
 
@@ -8,7 +8,13 @@ const sessionReducer = (state = initialState, action) => {
       return {
         ...state,
         userLogged: action.payload.user,
-        session: true,
+        token: true,
+      };
+
+    case typesApp.CLEAN_USER_SESSION:
+      return {
+        userLogged: {},
+        token: false,
       };
 
     default:

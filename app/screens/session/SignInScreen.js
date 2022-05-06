@@ -11,7 +11,7 @@ import {
 import {
   CheckEmpty,
   LogoPaisapp,
-  TextPaisapp,
+  TextPaisapp,  
   DescPaisapp,
   Checked,
 } from "use_svg";
